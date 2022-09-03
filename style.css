@@ -19,3 +19,40 @@
   --font-4xl: 2.25rem;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.orange-box {
+  position: absolute;
+  left: 43%;
+  bottom: 42%;
+  height: 20px;
+  width: 60px;
+  z-index: -2;
+}
+
+.more-categories-text {
+  color: white;
+  bottom: 90px;
+  left: 40px;
+}
+
+.white-arrow {
+  position: absolute;
+  bottom: 110px;
+  right: 70px;
+}
+
+@media only screen and (max-width: 600px) {
+  .first-row,
+  .second-row {
+    flex-direction: column;
+  }
+
+  section > div {
+    margin-bottom: 20px;
+  }
+}
