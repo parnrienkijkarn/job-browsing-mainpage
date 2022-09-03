@@ -6,16 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans&family=Poppins:wght@500;600;700&display=swap");
+    </style>
     <script>
       tailwind.config = {
         theme: {
           colors: {
-            myGrey: "#B3BAC5",
+            myGrey: "#F7F8F9",
             myOrange: "#FF8345",
             borderGrey: "#EDEDED",
+            blueText: "#183B56",
+            greyText: "#5A7184",
+            orangeHighlight: "#F8A87D",
           },
           extend: {
-            // Adds a new breakpoint in addition to the default breakpoints
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+              DMSans: ["DM Sans", "sans-serif"],
+            },
             screens: {
               "3xl": "1600px",
             },
@@ -26,22 +35,27 @@
     <title>Responsive Web Design - Ex 2</title>
   </head>
   <body>
-    <div class="h-screen w-screen">
-      <header class="p-10 text-center">
+    <div class="h-full w-full">
+      <header
+        class="pt-10 pb-20 text-center font-poppins font-semibold text-4xl text-blueText relative z-10"
+      >
         <h1>Browse by</h1>
         <h1>Job Categories</h1>
+        <div class="bg-orangeHighlight orange-box"></div>
       </header>
       <main class="flex flex-col">
         <!--FIRST ROW-->
-        <section class="flex flex-row justify-evenly items-center ml-20 mr-20">
+        <section class="flex xl:flex-row justify-center items-center first-row">
           <!-- Digital Marketing Item -->
           <div
-            class="flex flex-col p-5 justify-around items-start border border-borderGrey rounded-lg w-72 h-64 relative"
+            class="flex flex-col p-5 justify-around items-start border border-borderGrey rounded-lg w-72 h-64 relative mr-10"
           >
             <img src="./ex2-rbw/digital-marketing.svg" alt="megaphone" />
-            <div>
-              <p>Digital Marketing</p>
-              <p>143 Jobs Opened</p>
+            <div class="leading-8">
+              <p class="text-blueText font-semibold font-poppins">
+                Digital Marketing
+              </p>
+              <p class="text-greyText font-DMSans">143 Jobs Opened</p>
             </div>
             <img
               src="/ex2-rbw/blue-arrow.svg"
@@ -51,13 +65,24 @@
           </div>
           <!-- Art&Design Item -->
           <div
-            class="flex flex-col p-5 justify-around items-start border border-borderGrey rounded-lg w-72 h-64 relative"
+            class="flex flex-col p-5 justify-around items-start border border-borderGrey rounded-lg w-72 h-64 relative mr-10"
           >
-            <img src="/ex2-rbw/art-design.svg" alt="pen-head" />
-            <img src="./ex2-rbw/orange-background.svg" alt="orange-circle-bg" />
-            <div>
-              <p>Design & Art</p>
-              <p>110 Jobs Opened</p>
+            <div class="relative">
+              <img
+                src="./ex2-rbw/orange-background.svg"
+                alt="orange-circle-bg"
+              />
+              <img
+                src="/ex2-rbw/art-design.svg"
+                alt="pen-head"
+                class="absolute top-5 left-5"
+              />
+            </div>
+            <div class="leading-8">
+              <p class="text-blueText font-semibold font-poppins">
+                Design & Art
+              </p>
+              <p class="text-greyText font-DMSans">110 Jobs Opened</p>
             </div>
             <img
               src="/ex2-rbw/blue-arrow.svg"
@@ -66,26 +91,40 @@
             />
           </div>
           <!-- Accounting Item -->
-          <div class="border border-borderGrey rounded-lg w-72 h-64 bg-myGrey">
-            <img src="/ex2-rbw/accounting.svg" alt="dollar-sign" />
-            <img
-              src="/ex2-rbw/dark-orange-background.svg"
-              alt="orange-circle-bg"
-            />
-            <div>
-              <p>Accounting</p>
-              <p>158 Jobs Opened</p>
+          <div
+            class="flex flex-col p-5 justify-around items-start border border-borderGrey rounded-lg w-72 h-64 bg-myGrey relative mr-10"
+          >
+            <div class="relative">
+              <img
+                src="/ex2-rbw/dark-orange-background.svg"
+                alt="orange-circle-bg"
+              />
+              <img
+                src="/ex2-rbw/accounting.svg"
+                alt="dollar-sign"
+                class="absolute top-6 left-8"
+              />
             </div>
-            <img src="/ex2-rbw/blue-arrow.svg" alt="blue-arrow" />
+            <div class="leading-8">
+              <p class="text-blueText font-semibold font-poppins">Accounting</p>
+              <p class="text-greyText font-DMSans pb-3">158 Jobs Opened</p>
+            </div>
+            <img
+              src="/ex2-rbw/blue-arrow.svg"
+              alt="blue-arrow"
+              class="absolute bottom-10 right-8"
+            />
           </div>
           <!-- Photography Item -->
           <div
-            class="flex flex-col p-5 justify-around items-start border border-borderGrey rounded-lg w-72 h-64 relative"
+            class="flex flex-col p-5 justify-around items-start border border-borderGrey rounded-lg w-72 h-64 relative mr-10"
           >
             <img src="/ex2-rbw/photography.svg" alt="camera" />
-            <div>
-              <p>Photography</p>
-              <p>95 Jobs Opened</p>
+            <div class="leading-8">
+              <p class="text-blueText font-semibold font-poppins">
+                Photography
+              </p>
+              <p class="text-greyText font-light font-DMSans">95 Jobs Opened</p>
             </div>
             <img
               src="/ex2-rbw/blue-arrow.svg"
@@ -96,47 +135,75 @@
         </section>
 
         <!--SECOND ROW-->
-        <section
-          class="pt-10 flex flex-row justify-evenly items-center ml-20 mr-20"
-        >
+        <section class="pt-10 flex xl:flex-row justify-center items-center second-row">
           <!-- Copywriting Item -->
-          <div class="border border-borderGrey rounded-lg w-72 h-64">
+          <div
+            class="flex flex-col p-5 justify-around items-start border border-borderGrey rounded-lg w-72 h-64 relative mr-10"
+          >
             <img src="/ex2-rbw/copy-writing.svg" alt="pen-and-paper" />
-            <div>
-              <p>Copywriting</p>
-              <p>113 Jobs Opened</p>
+            <div class="leading-8">
+              <p class="text-blueText font-semibold font-poppins">
+                Copywriting
+              </p>
+              <p class="text-greyText font-light font-DMSans">
+                113 Jobs Opened
+              </p>
             </div>
-            <img src="/ex2-rbw/blue-arrow.svg" alt="blue-arrow" />
+            <img
+              src="/ex2-rbw/blue-arrow.svg"
+              alt="blue-arrow"
+              class="absolute bottom-10 right-8"
+            />
           </div>
           <!-- Music Item -->
-          <div class="border border-borderGrey rounded-lg w-72 h-64">
+          <div
+            class="flex flex-col p-5 justify-around items-start border border-borderGrey rounded-lg w-72 h-64 relative mr-10"
+          >
             <img src="/ex2-rbw/music.svg" alt="headphone" />
-            <div>
-              <p>Music</p>
-              <p>55 Jobs Opened</p>
+            <div class="leading-8">
+              <p class="text-blueText font-semibold font-poppins">Music</p>
+              <p class="text-greyText font-light font-DMSans">55 Jobs Opened</p>
             </div>
-            <img src="/ex2-rbw/blue-arrow.svg" alt="blue-arrow" />
+            <img
+              src="/ex2-rbw/blue-arrow.svg"
+              alt="blue-arrow"
+              class="absolute bottom-10 right-8"
+            />
           </div>
           <!-- Human Resource Item -->
-          <div class="border border-borderGrey rounded-lg w-72 h-64">
+          <div
+            class="flex flex-col p-5 justify-around items-start border border-borderGrey rounded-lg w-72 h-64 relative mr-10"
+          >
             <img src="/ex2-rbw/hr.svg" alt="people-holding-hand" />
-            <div>
-              <p>Human Resources</p>
-              <p>25 Jobs Opened</p>
+            <div class="leading-8">
+              <p class="text-blueText font-semibold font-poppins">
+                Human Resources
+              </p>
+              <p class="text-greyText font-light font-DMSans">25 Jobs Opened</p>
             </div>
-            <img src="/ex2-rbw/blue-arrow.svg" alt="blue-arrow" />
+            <img
+              src="/ex2-rbw/blue-arrow.svg"
+              alt="blue-arrow"
+              class="absolute right-8 bottom-10"
+            />
           </div>
 
           <!-- More Categories Item -->
           <div
-            class="border-0 border-myOrange rounded-lg w-72 h-64 bg-myOrange"
+            class="border-0 border-myOrange rounded-lg w-72 h-64 bg-myOrange mr-10 relative"
           >
-            <div>
-              <h6>Explore</h6>
-              <h6>30 More</h6>
-              <h6>Categories</h6>
+          <div class="absolute">
+            <img src="/ex2-rbw/line-top-right.png" alt="decoration-lines" class="opacity-40">
+          </div>
+            <div class="absolute text-xl font-poppins more-categories-text">
+              <p>Explore</p>
+              <p>30 More</p>
+              <p>Categories</p>
             </div>
-            <img src="/ex2-rbw/white-arrow.svg" alt="white-arrow" />
+            <img src="/ex2-rbw/white-arrow.svg" alt="white-arrow" class="white-arrow" />
+            <div class="absolute bottom-1">
+              <img src="/ex2-rbw/lines-bottom-left.png" alt="decorations-lines" class="opacity-40">
+            </div>
           </div>
         </section>
       </main>
